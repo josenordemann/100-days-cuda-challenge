@@ -49,6 +49,7 @@ Every solution in this repository is written, tested, and understood by me.
 | 003 | Vector addition with arbitrary sizes                    | Dynamic grid sizing, ceiling division, excess thread protection, multiple test cases | ✅ |
 | 004 | CUDA error handling with `CUDA_CHECK`                   | Error codes, macros, file and line diagnostics, launch and synchronization errors    | ✅ |
 | 005 | SAXPY implementation and CPU comparison                 | Floating-point operations, CPU reference, numerical tolerance, result comparison     | ✅ |
+| 006 | ReLU, Leaky ReLU, sigmoid, tanh, and hard sigmoid       | Element-wise activations, branching, math functions, CPU–GPU validation               | ✅ |
 
 ## Repository Structure
 
@@ -64,6 +65,8 @@ Every solution in this repository is written, tested, and understood by me.
 │   └── cuda_check_error.cu
 ├── day-5/
 │   └── saxypy.cu
+├── day-6/
+│   └── activation_functions.cu
 └── README.md
 ```
 
