@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <vector>
-// this code here is just to learn how to make loops and grid concepts
+// this code is just for learning how to use loops and understand grid concepts
 #define CUDA_CHECK(call) do {                                                                                                       \
     cudaError_t error = (call);                                                                                                     \
     if (error != cudaSuccess){                                                                                                      \
@@ -12,18 +12,18 @@
     }                                                                                                                               \
 }while (0)
 
-#define threads 1024
+#define threads 256
 
 __global__ void vector_addition(int *A, int *B, int *C, int N){
     int i = threadIdx.x + blockDim.x*blockIdx.x;
-    int stride = blockDim.x*gridDim.x;              //each grid is made of blocks
-    for(; i < N; i = i + stride){                   // in this loop, a thread move to the adress of the next element which it has to proccess
-        C[i] = A[i] + B[i];                         // in this ex, 0 -> 1024 -> 2028, 1 -> 1025 -> 2029
-    }
-}
+    int stride = blockDim.x*gridDim.x;              // the stride is the total number of threads in the gri
+    for(; i < N; i = i + stride){                   // each thread advances by stride to its next assigned element
+        C[i] = A[i] + B[i];                         // in this ex, 0 -> 65536 -> 131072 , 1 -> 65537 -> 131073
+    }                                               // here, stride = 65536 = 256 blocks (gridDim) * 256 threads per block (blockDim) = threads in the grid
+}                                                   // each thread will proccess 20 values = N/stride
 
 int main(){
-    int N = (threads*120000);
+    int N = (threads*256*20);
     std::vector<int> A;
     std::vector<int> B;
     std::vector<int> C;
@@ -47,9 +47,9 @@ int main(){
     CUDA_CHECK(cudaMemcpy(A_d, A.data(), sizeof(int)*N, cudaMemcpyHostToDevice));
     CUDA_CHECK(cudaMemcpy(B_d, B.data(), sizeof(int)*N, cudaMemcpyHostToDevice));
 
-    int blocks = (threads + N - 1)/threads;
-
-    vector_addition<<<blocks, threads>>>(A_d, B_d, C_d, N);
+    // launch one grid with 256 blocks and 256 threads per block
+    // each kernel call "generate" one grid
+    vector_addition<<<256, threads>>>(A_d, B_d, C_d, N);
 
     CUDA_CHECK(cudaGetLastError());
 
