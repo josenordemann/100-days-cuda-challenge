@@ -42,15 +42,16 @@ Every solution in this repository is written, tested, and understood by me.
 
 ## Progress
 
-| Day | Exercise                                                | Concepts                                                                             | Status |
-| --: | ------------------------------------------------------- | ------------------------------------------------------------------------------------ | :----: |
-| 001 | A single GPU thread writes `42`, and the host prints it | Kernel launch, device memory, synchronization, D2H copy                              |   ✅    |
-| 002 | Element-wise vector addition `C = A + B` with `N = 256` | Global thread indexing, grid configuration, bounds checking, result validation       |   ✅    |
-| 003 | Vector addition with arbitrary sizes                    | Dynamic grid sizing, ceiling division, excess thread protection, multiple test cases |   ✅    |
-| 004 | CUDA error handling with `CUDA_CHECK`                   | Error codes, macros, file and line diagnostics, launch and synchronization errors    |   ✅    |
-| 005 | SAXPY implementation and CPU comparison                 | Floating-point operations, CPU reference, numerical tolerance, result comparison     |   ✅    |
-| 006 | ReLU, Leaky ReLU, sigmoid, tanh, and hard sigmoid       | Element-wise activations, branching, math functions, CPU–GPU validation              |   ✅    |
-| 007 | Vector addition using a grid-stride loop                | Grid-wide stride, thread reuse, multiple elements per thread, scalable data traversal |   ✅    |
+| Day | Exercise                                                | Concepts                                                                               | Status |
+| --: | ------------------------------------------------------- | -------------------------------------------------------------------------------------- | :----: |
+| 001 | A single GPU thread writes `42`, and the host prints it | Kernel launch, device memory, synchronization, D2H copy                                |   ✅    |
+| 002 | Element-wise vector addition `C = A + B` with `N = 256` | Global thread indexing, grid configuration, bounds checking, result validation         |   ✅    |
+| 003 | Vector addition with arbitrary sizes                    | Dynamic grid sizing, ceiling division, excess thread protection, multiple test cases   |   ✅    |
+| 004 | CUDA error handling with `CUDA_CHECK`                   | Error codes, macros, file and line diagnostics, launch and synchronization errors      |   ✅    |
+| 005 | SAXPY implementation and CPU comparison                 | Floating-point operations, CPU reference, numerical tolerance, result comparison       |   ✅    |
+| 006 | ReLU, Leaky ReLU, sigmoid, tanh, and hard sigmoid       | Element-wise activations, branching, math functions, CPU–GPU validation                |   ✅    |
+| 007 | Vector addition using a grid-stride loop                | Grid-wide stride, thread reuse, multiple elements per thread, scalable data traversal  |   ✅    |
+| 008 | 2D rectangular matrix addition using `dim3`             | 2D grids and blocks, row-major indexing, ceiling division, 2D bounds checking          |   ✅    |
 
 ## Repository Structure
 
@@ -70,6 +71,8 @@ Every solution in this repository is written, tested, and understood by me.
 │   └── activation_functions.cu
 ├── day-7/
 │   └── gride-stride_loop.cu
+├── day-8/
+│   └── matsum2d.cu
 └── README.md
 ```
 
