@@ -52,6 +52,7 @@ Every solution in this repository is written, tested, and understood by me.
 | 006 | ReLU, Leaky ReLU, sigmoid, tanh, and hard sigmoid       | Element-wise activations, branching, math functions, CPU–GPU validation                |   ✅    |
 | 007 | Vector addition using a grid-stride loop                | Grid-wide stride, thread reuse, multiple elements per thread, scalable data traversal  |   ✅    |
 | 008 | 2D rectangular matrix addition using `dim3`             | 2D grids and blocks, row-major indexing, ceiling division, 2D bounds checking          |   ✅    |
+| 009 | 3D tensor addition using `dim3`                         | 3D grids and blocks, axis order, memory strides, linear indexing, 3D bounds checking   |   ✅    |
 
 ## Repository Structure
 
@@ -73,6 +74,8 @@ Every solution in this repository is written, tested, and understood by me.
 │   └── gride-stride_loop.cu
 ├── day-8/
 │   └── matsum2d.cu
+├── day-9/
+│   └── matsum3d.cu
 └── README.md
 ```
 
