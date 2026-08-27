@@ -53,29 +53,32 @@ Every solution in this repository is written, tested, and understood by me.
 | 007 | Vector addition using a grid-stride loop                | Grid-wide stride, thread reuse, multiple elements per thread, scalable data traversal  |   ✅    |
 | 008 | 2D rectangular matrix addition using `dim3`             | 2D grids and blocks, row-major indexing, ceiling division, 2D bounds checking          |   ✅    |
 | 009 | 3D tensor addition using `dim3`                         | 3D grids and blocks, axis order, memory strides, linear indexing, 3D bounds checking   |   ✅    |
+| 010 | CUDA operation timing using CUDA Events                 | GPU timing, asynchronous execution, warm-up, H2D, kernel and D2H measurement           |   ✅    |
 
 ## Repository Structure
 
 ```text
 .
-├── day-1/
+├── day-001/
 │   └── helloworld.cu
-├── day-2/
+├── day-002/
 │   └── gpu_vector_addition.cu
-├── day-3/
+├── day-003/
 │   └── gpu_vector_addition_N.cu
-├── day-4/
+├── day-004/
 │   └── cuda_check_error.cu
-├── day-5/
+├── day-005/
 │   └── saxypy.cu
-├── day-6/
+├── day-006/
 │   └── activation_functions.cu
-├── day-7/
+├── day-007/
 │   └── gride-stride_loop.cu
-├── day-8/
+├── day-008/
 │   └── matsum2d.cu
-├── day-9/
+├── day-009/
 │   └── matsum3d.cu
+├── day-010/
+│   └── CUDA_Events.cu
 └── README.md
 ```
 
