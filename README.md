@@ -42,18 +42,20 @@ Every solution in this repository is written, tested, and understood by me.
 
 ## Progress
 
-| Day | Exercise                                                | Concepts                                                                               | Status |
-| --: | ------------------------------------------------------- | -------------------------------------------------------------------------------------- | :----: |
-| 001 | A single GPU thread writes `42`, and the host prints it | Kernel launch, device memory, synchronization, D2H copy                                |   ✅    |
-| 002 | Element-wise vector addition `C = A + B` with `N = 256` | Global thread indexing, grid configuration, bounds checking, result validation         |   ✅    |
-| 003 | Vector addition with arbitrary sizes                    | Dynamic grid sizing, ceiling division, excess thread protection, multiple test cases   |   ✅    |
-| 004 | CUDA error handling with `CUDA_CHECK`                   | Error codes, macros, file and line diagnostics, launch and synchronization errors      |   ✅    |
-| 005 | SAXPY implementation and CPU comparison                 | Floating-point operations, CPU reference, numerical tolerance, result comparison       |   ✅    |
-| 006 | ReLU, Leaky ReLU, sigmoid, tanh, and hard sigmoid       | Element-wise activations, branching, math functions, CPU–GPU validation                |   ✅    |
-| 007 | Vector addition using a grid-stride loop                | Grid-wide stride, thread reuse, multiple elements per thread, scalable data traversal  |   ✅    |
-| 008 | 2D rectangular matrix addition using `dim3`             | 2D grids and blocks, row-major indexing, ceiling division, 2D bounds checking          |   ✅    |
-| 009 | 3D tensor addition using `dim3`                         | 3D grids and blocks, axis order, memory strides, linear indexing, 3D bounds checking   |   ✅    |
-| 010 | CUDA operation timing using CUDA Events                 | GPU timing, asynchronous execution, warm-up, H2D, kernel and D2H measurement           |   ✅    |
+| Day | Exercise                                                | Concepts                                                                                   | Status |
+| --: | ------------------------------------------------------- | ------------------------------------------------------------------------------------------ | :----: |
+| 001 | A single GPU thread writes `42`, and the host prints it | Kernel launch, device memory, synchronization, D2H copy                                    |   ✅   |
+| 002 | Element-wise vector addition `C = A + B` with `N = 256` | Global thread indexing, grid configuration, bounds checking, result validation             |   ✅   |
+| 003 | Vector addition with arbitrary sizes                    | Dynamic grid sizing, ceiling division, excess thread protection, multiple test cases       |   ✅   |
+| 004 | CUDA error handling with `CUDA_CHECK`                   | Error codes, macros, file and line diagnostics, launch and synchronization errors          |   ✅   |
+| 005 | SAXPY implementation and CPU comparison                 | Floating-point operations, CPU reference, numerical tolerance, result comparison           |   ✅   |
+| 006 | ReLU, Leaky ReLU, sigmoid, tanh, and hard sigmoid       | Element-wise activations, branching, math functions, CPU–GPU validation                    |   ✅   |
+| 007 | Vector addition using a grid-stride loop                | Grid-wide stride, thread reuse, multiple elements per thread, scalable data traversal      |   ✅   |
+| 008 | 2D rectangular matrix addition using `dim3`             | 2D grids and blocks, row-major indexing, ceiling division, 2D bounds checking              |   ✅   |
+| 009 | 3D tensor addition using `dim3`                         | 3D grids and blocks, axis order, memory strides, linear indexing, 3D bounds checking       |   ✅   |
+| 010 | CUDA operation timing using CUDA Events                 | GPU timing, asynchronous execution, warm-up, H2D, kernel and D2H measurement               |   ✅   |
+| 011 | CUDA debugging using Compute Sanitizer                  | Memcheck, initcheck, racecheck, synccheck, invalid accesses and synchronization errors     |   ✅   |
+| 012 | Reusable CUDA test harness                              | Reproducible inputs, absolute and relative tolerances, warm-up, timing and CSV result logs |   ✅   |
 
 ## Repository Structure
 
@@ -79,6 +81,13 @@ Every solution in this repository is written, tested, and understood by me.
 │   └── matsum3d.cu
 ├── day-010/
 │   └── CUDA_Events.cu
+├── day-011/
+│   └── initcheck.cu
+│   └── memcheck.cu
+│   └── racecheck.cu
+│   └── synccheck.cu
+├── day-012/
+│   └── test_harness.cu
 └── README.md
 ```
 
