@@ -1,0 +1,2 @@
+test_name,N,seed,atol,rtol,warmup,repetitions,kernel_mean_ms,passed,mismatches
+harness,1000,1234,0.000010,0.000010,10,1000,0.006312,yes,0
