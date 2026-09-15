@@ -56,6 +56,7 @@ Every solution in this repository is written, tested, and understood by me.
 | 010 | CUDA operation timing using CUDA Events                 | GPU timing, asynchronous execution, warm-up, H2D, kernel and D2H measurement               |   ✅   |
 | 011 | CUDA debugging using Compute Sanitizer                  | Memcheck, initcheck, racecheck, synccheck, invalid accesses and synchronization errors     |   ✅   |
 | 012 | Reusable CUDA test harness                              | Reproducible inputs, absolute and relative tolerances, warm-up, timing and CSV result logs |   ✅   |
+| 013 | Coalesced versus strided global memory access           | Memory coalescing, warp access patterns, row-major layout, strides and performance timing  |   ✅   |
 
 ## Repository Structure
 
@@ -88,6 +89,8 @@ Every solution in this repository is written, tested, and understood by me.
 │   └── synccheck.cu
 ├── day-012/
 │   └── test_harness.cu
+├── day-013/
+│   └── coalescing.cu
 └── README.md
 ```
 
