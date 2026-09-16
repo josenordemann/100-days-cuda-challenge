@@ -57,6 +57,10 @@ Every solution in this repository is written, tested, and understood by me.
 | 011 | CUDA debugging using Compute Sanitizer                  | Memcheck, initcheck, racecheck, synccheck, invalid accesses and synchronization errors     |   ✅   |
 | 012 | Reusable CUDA test harness                              | Reproducible inputs, absolute and relative tolerances, warm-up, timing and CSV result logs |   ✅   |
 | 013 | Coalesced versus strided global memory access           | Memory coalescing, warp access patterns, row-major layout, strides and performance timing  |   ✅   |
+<<<<<<< HEAD
+=======
+| 014 | Naive transpose of rectangular matrices                 | 2D indexing, transposed dimensions, coalesced reads, strided writes, CPU–GPU validation    |   ✅   |
+>>>>>>> 8ae84bc (day 14 -  matrix transposition)
 
 ## Repository Structure
 
@@ -91,6 +95,11 @@ Every solution in this repository is written, tested, and understood by me.
 │   └── test_harness.cu
 ├── day-013/
 │   └── coalescing.cu
+<<<<<<< HEAD
+=======
+├── day-014/
+│   └── coalescing.cu
+>>>>>>> 8ae84bc (day 14 -  matrix transposition)
 └── README.md
 ```
 
