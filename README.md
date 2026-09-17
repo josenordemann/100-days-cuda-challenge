@@ -58,6 +58,7 @@ Every solution in this repository is written, tested, and understood by me.
 | 012 | Reusable CUDA test harness                              | Reproducible inputs, absolute and relative tolerances, warm-up, timing and CSV result logs |   ✅   |
 | 013 | Coalesced versus strided global memory access           | Memory coalescing, warp access patterns, row-major layout, strides and performance timing  |   ✅   |
 | 014 | Naive transpose of rectangular matrices                 | 2D indexing, transposed dimensions, coalesced reads, strided writes, CPU–GPU validation    |   ✅   |
+| 015 | Reverse vector blocks using shared memory               | Shared memory, thread cooperation, `__syncthreads()`, partial block handling               |   ✅   |
 
 ## Repository Structure
 
@@ -84,6 +85,7 @@ Every solution in this repository is written, tested, and understood by me.
 ├── day-010/
 │   └── CUDA_Events.cu
 ├── day-011/
+│   └── readme.md
 │   └── initcheck.cu
 │   └── memcheck.cu
 │   └── racecheck.cu
@@ -93,7 +95,10 @@ Every solution in this repository is written, tested, and understood by me.
 ├── day-013/
 │   └── coalescing.cu
 ├── day-014/
-│   └── coalescing.cu
+│   └── naive_mat_t.cu
+├── day-014/
+│   └── readme.md
+│   └── reverse_blocks_shared.cu
 └── README.md
 ```
 
