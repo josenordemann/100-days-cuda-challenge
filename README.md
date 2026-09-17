@@ -96,7 +96,7 @@ Every solution in this repository is written, tested, and understood by me.
 │   └── coalescing.cu
 ├── day-014/
 │   └── naive_mat_t.cu
-├── day-014/
+├── day-015/
 │   └── readme.md
 │   └── reverse_blocks_shared.cu
 └── README.md
