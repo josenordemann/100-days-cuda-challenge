@@ -42,23 +42,24 @@ Every solution in this repository is written, tested, and understood by me.
 
 ## Progress
 
-| Day | Exercise                                                | Concepts                                                                                   | Status |
-| --: | ------------------------------------------------------- | ------------------------------------------------------------------------------------------ | :----: |
-| 001 | A single GPU thread writes `42`, and the host prints it | Kernel launch, device memory, synchronization, D2H copy                                    |   ✅   |
-| 002 | Element-wise vector addition `C = A + B` with `N = 256` | Global thread indexing, grid configuration, bounds checking, result validation             |   ✅   |
-| 003 | Vector addition with arbitrary sizes                    | Dynamic grid sizing, ceiling division, excess thread protection, multiple test cases       |   ✅   |
-| 004 | CUDA error handling with `CUDA_CHECK`                   | Error codes, macros, file and line diagnostics, launch and synchronization errors          |   ✅   |
-| 005 | SAXPY implementation and CPU comparison                 | Floating-point operations, CPU reference, numerical tolerance, result comparison           |   ✅   |
-| 006 | ReLU, Leaky ReLU, sigmoid, tanh, and hard sigmoid       | Element-wise activations, branching, math functions, CPU–GPU validation                    |   ✅   |
-| 007 | Vector addition using a grid-stride loop                | Grid-wide stride, thread reuse, multiple elements per thread, scalable data traversal      |   ✅   |
-| 008 | 2D rectangular matrix addition using `dim3`             | 2D grids and blocks, row-major indexing, ceiling division, 2D bounds checking              |   ✅   |
-| 009 | 3D tensor addition using `dim3`                         | 3D grids and blocks, axis order, memory strides, linear indexing, 3D bounds checking       |   ✅   |
-| 010 | CUDA operation timing using CUDA Events                 | GPU timing, asynchronous execution, warm-up, H2D, kernel and D2H measurement               |   ✅   |
-| 011 | CUDA debugging using Compute Sanitizer                  | Memcheck, initcheck, racecheck, synccheck, invalid accesses and synchronization errors     |   ✅   |
-| 012 | Reusable CUDA test harness                              | Reproducible inputs, absolute and relative tolerances, warm-up, timing and CSV result logs |   ✅   |
-| 013 | Coalesced versus strided global memory access           | Memory coalescing, warp access patterns, row-major layout, strides and performance timing  |   ✅   |
-| 014 | Naive transpose of rectangular matrices                 | 2D indexing, transposed dimensions, coalesced reads, strided writes, CPU–GPU validation    |   ✅   |
-| 015 | Reverse vector blocks using shared memory               | Shared memory, thread cooperation, `__syncthreads()`, partial block handling               |   ✅   |
+| Day | Exercise | Concepts | Status |
+| --: | -------- | -------- | :----: |
+| 001 | A single GPU thread writes `42`, and the host prints it | Kernel launch, device memory, synchronization, D2H copy | ✅ |
+| 002 | Element-wise vector addition `C = A + B` with `N = 256` | Global thread indexing, grid configuration, bounds checking, result validation | ✅ |
+| 003 | Vector addition with arbitrary sizes | Dynamic grid sizing, ceiling division, excess thread protection, multiple test cases | ✅ |
+| 004 | CUDA error handling with `CUDA_CHECK` | Error codes, macros, file and line diagnostics, launch and synchronization errors | ✅ |
+| 005 | SAXPY implementation and CPU comparison | Floating-point operations, CPU reference, numerical tolerance, result comparison | ✅ |
+| 006 | ReLU, Leaky ReLU, sigmoid, tanh, and hard sigmoid | Element-wise activations, branching, math functions, CPU–GPU validation | ✅ |
+| 007 | Vector addition using a grid-stride loop | Grid-wide stride, thread reuse, multiple elements per thread, scalable data traversal | ✅ |
+| 008 | 2D rectangular matrix addition using `dim3` | 2D grids and blocks, row-major indexing, ceiling division, 2D bounds checking | ✅ |
+| 009 | 3D tensor addition using `dim3` | 3D grids and blocks, axis order, memory strides, linear indexing, 3D bounds checking | ✅ |
+| 010 | CUDA operation timing using CUDA Events | GPU timing, asynchronous execution, warm-up, H2D, kernel and D2H measurement | ✅ |
+| 011 | CUDA debugging using Compute Sanitizer | Memcheck, initcheck, racecheck, synccheck, invalid accesses and synchronization errors | ✅ |
+| 012 | Reusable CUDA test harness | Reproducible inputs, absolute and relative tolerances, warm-up, timing and CSV result logs | ✅ |
+| 013 | Coalesced versus strided global memory access | Memory coalescing, warp access patterns, row-major layout, strides and performance timing | ✅ |
+| 014 | Naive transpose of rectangular matrices | 2D indexing, transposed dimensions, coalesced reads, strided writes, CPU–GPU validation | ✅ |
+| 015 | Reverse vector blocks using shared memory | Shared memory, thread cooperation, `__syncthreads()`, partial block handling | ✅ |
+| 016 | Tiled matrix transpose using shared memory and padding | 2D tiles, shared memory, synchronization, bank conflicts, padding, coalesced access | ✅ |
 
 ## Repository Structure
 
@@ -99,6 +100,8 @@ Every solution in this repository is written, tested, and understood by me.
 ├── day-015/
 │   └── readme.md
 │   └── reverse_blocks_shared.cu
+├── day-016/
+│   └── transpose_tiled_shared.cu
 └── README.md
 ```
 
