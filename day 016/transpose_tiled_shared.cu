@@ -47,6 +47,17 @@ __global__ void transpose_tiled_shared (const float *A, float *B, int rows, int 
 // outputRow * rows + outputCol gives the output index, because B has rows elements per row
 // the extra column in shared memory is padding to reduce bank conflicts
 
+__global__ void mat_transposition (const float *A, float *B, const int row, const int col){
+    int x = threadIdx.x + blockIdx.x*blockDim.x;
+    int y = threadIdx.y + blockIdx.y*blockDim.y;
+
+    if(x < col && y < row){     //col = X and row = Y
+        int input = y*col + x;        //yX + x
+        int output =  x*row + y;      //xY + y
+        B[output] = A[input];       
+    }
+}
+
 int main(){
     int rows = 35;
     int cols = 265;
@@ -100,6 +111,58 @@ int main(){
 
     std::cout << "The operation was a "<< (test ? "success!" : "failure") << std::endl;
 
+    // warm-up
+    for (int i = 0; i < 20; i++) {
+        transpose_tiled_shared<<<grid, block>>>(A_d, B_d, rows, cols);
+        CUDA_CHECK(cudaGetLastError());
+
+        mat_transposition<<<grid, block>>>(A_d, B_d, rows, cols);
+        CUDA_CHECK(cudaGetLastError());
+    }
+
+    CUDA_CHECK(cudaDeviceSynchronize());
+
+    cudaEvent_t start;
+    cudaEvent_t stop;
+
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+
+    CUDA_CHECK(cudaEventCreate(&start));
+    CUDA_CHECK(cudaEventCreate(&stop));
+
+    CUDA_CHECK(cudaEventRecord(start));
+
+    for (int i = 0; i < 100; i++) {
+        transpose_tiled_shared<<<grid, block>>>(A_d, B_d, rows, cols);
+        CUDA_CHECK(cudaGetLastError());
+    }
+
+    CUDA_CHECK(cudaEventRecord(stop));
+    CUDA_CHECK(cudaEventSynchronize(stop));
+    CUDA_CHECK(cudaEventElapsedTime(&t1, start, stop));
+
+    CUDA_CHECK(cudaEventRecord(start));
+
+    for (int i = 0; i < 100; i++) {
+        mat_transposition<<<grid, block>>>(A_d, B_d, rows, cols);
+        CUDA_CHECK(cudaGetLastError());
+    }
+
+    CUDA_CHECK(cudaEventRecord(stop));
+    CUDA_CHECK(cudaEventSynchronize(stop));
+    CUDA_CHECK(cudaEventElapsedTime(&t2, start, stop));
+
+    t1 /= 100;
+    t2 /= 100;
+
+    CUDA_CHECK(cudaEventDestroy(start));
+    CUDA_CHECK(cudaEventDestroy(stop));
+
+    float s = t1/t2;
+
+    std::cout<< s << std::endl;
+    
     CUDA_CHECK(cudaFree(A_d));
     CUDA_CHECK(cudaFree(B_d));
 
