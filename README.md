@@ -59,6 +59,8 @@ Every solution in this repository is written, tested, and understood by me.
 | 013 | Coalesced versus strided global memory access           | Memory coalescing, warp access patterns, row-major layout, strides and performance timing  |   ✅   |
 | 014 | Naive transpose of rectangular matrices                 | 2D indexing, transposed dimensions, coalesced reads, strided writes, CPU–GPU validation    |   ✅   |
 | 015 | Reverse vector blocks using shared memory               | Shared memory, thread cooperation, `__syncthreads()`, partial block handling               |   ✅   |
+| 016 | Tiled matrix transpose using shared memory and padding  | 2D tiles, synchronization, bank conflicts, padding, coalesced access, performance timing   |   ✅   |
+| 017 | Affine vector transformation using constant memory      | `__constant__`, `cudaMemcpyToSymbol`, read-only parameters, CPU–GPU validation             |   ✅   |
 
 ## Repository Structure
 
@@ -85,10 +87,10 @@ Every solution in this repository is written, tested, and understood by me.
 ├── day-010/
 │   └── CUDA_Events.cu
 ├── day-011/
-│   └── readme.md
-│   └── initcheck.cu
-│   └── memcheck.cu
-│   └── racecheck.cu
+│   ├── readme.md
+│   ├── initcheck.cu
+│   ├── memcheck.cu
+│   ├── racecheck.cu
 │   └── synccheck.cu
 ├── day-012/
 │   └── test_harness.cu
@@ -97,8 +99,12 @@ Every solution in this repository is written, tested, and understood by me.
 ├── day-014/
 │   └── naive_mat_t.cu
 ├── day-015/
-│   └── readme.md
+│   ├── readme.md
 │   └── reverse_blocks_shared.cu
+├── day-016/
+│   └── transpose_tiled_shared.cu
+├── day-017/
+│   └── constant_memory_params.cu
 └── README.md
 ```
 
