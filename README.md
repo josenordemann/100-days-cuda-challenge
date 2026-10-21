@@ -61,6 +61,8 @@ Every solution in this repository is written, tested, and understood by me.
 | 015 | Reverse vector blocks using shared memory               | Shared memory, thread cooperation, `__syncthreads()`, partial block handling               |   ✅   |
 | 016 | Tiled matrix transpose using shared memory and padding  | 2D tiles, synchronization, bank conflicts, padding, coalesced access, performance timing   |   ✅   |
 | 017 | Affine vector transformation using constant memory      | `__constant__`, `cudaMemcpyToSymbol`, read-only parameters, CPU–GPU validation             |   ✅   |
+| 018 | Pageable versus pinned host memory                      | `malloc`, `cudaMallocHost`, H2D and D2H transfers, warm-up, host-side timing               |   ✅   |
+| 019 | Chunk processing using CUDA Streams                     | Streams, `cudaMemcpyAsync`, pinned memory, chunk offsets, synchronization, copy and kernel overlap |   ✅   |
 
 ## Repository Structure
 
@@ -105,6 +107,11 @@ Every solution in this repository is written, tested, and understood by me.
 │   └── transpose_tiled_shared.cu
 ├── day-017/
 │   └── constant_memory_params.cu
+├── day-018/
+│   └── pinned_memory.cu
+├── day-019/
+│   ├── streams_and_chunk_processing.cu
+│   └── streams_and_chunk_processing_2streams.cu
 └── README.md
 ```
 
